@@ -1,0 +1,26 @@
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title> Register </title>
+		<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+	</head>
+	<body>
+		<div class="body">
+			<div class="card">
+				<div class="header">
+					<h1 class="word">Register</h1>
+				</div>
+				<h2 class="word">
+					<form action="{{ url_for('user_route.register') }}" method="post">
+					<div class="msg">{{ msg }}</div>
+						<input class="input login" id="email" name="email" type="text" placeholder="Enter your email ..."/>
+						<input class="input login" id="username" name="username" type="text" placeholder="Enter your username ..."/>
+						<input class="input login" id="password" name="password" type="password" placeholder="Enter your password ..."/>
+						<input class="input button btn" type="submit" value="SIGN UP">
+					</form>
+				</h2>
+				<p class="bottom">Already have an account? <a class="bottom" href="{{url_for('user_route.login')}}"> Sign In here</a></p>
+			</div>
+		</div>
+	</body>
+</html>

@@ -1,0 +1,17 @@
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title> JobStatisticsApp </title>
+		<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+	</head>
+	<body>
+		<div class="body">
+			<div class="page">
+				<form class= "panel" action="{{ url_for('user_route.logout') }}" method="get">
+					<input class="input bth button" type="submit" value="LOGOUT">
+				</form>
+				<h1 class="page-name">Wykresy</h1>
+    			<img src="{{ url_for('static', filename='images/plot.png') }}">			</div>
+		</div>
+	</body>
+</html>

@@ -1,0 +1,25 @@
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title> JobStatisticsApp </title>
+		<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+	</head>
+	<body>
+		<div class="body">
+			<div class="card">
+				<div class="header">
+					<h1 class="word">Login</h1>
+				</div>
+				<h2 class="word">
+					<form action="{{ url_for('user_route.login') }}" method="post">
+					<div class="msg">{{ msg }}</div>
+						<input class="input login" id="email" name="email" type="text" placeholder="Enter your email ..."/>
+						<input class="input login" id="password" name="password" type="password" placeholder="Enter your password ..."/>
+						<input class="input button" type="submit" value="LOG IN">
+					</form>
+				</h2>
+				<p class="bottom">Don't have an account? <a class="bottom" href="{{url_for('user_route.register')}}"> Sign Up here</a></p>
+			</div>
+		</div>
+	</body>
+</html>

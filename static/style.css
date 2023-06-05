@@ -1,0 +1,130 @@
+body {
+    padding: 0px;
+    margin: 0px;
+    font-family: 'Libre Franklin', sans-serif;
+    background: url(./img/desk.jpg) bottom center no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+.body {
+    height: 100vh;
+    width: 100%;
+}
+
+.start-description {
+    height: 120px;
+    text-align: center
+}
+
+.start-title {
+    height: 120px;
+    margin: 0px;
+    margin-top: 150px;
+    text-align: center;
+    font-family: 'Libre Franklin', sans-serif;
+    font-width: bold;
+    font-size: 40;
+}
+
+.start-panel {
+    display: flex;
+    width: 100%;
+    height: calc(100vh - 407px);
+    font-family: 'Libre Franklin', sans-serif;
+    font-weight: bold;
+    text-align: center;
+    margin: 0 auto;
+    align-items: center;
+    justify-content: center;
+}
+
+.card {
+  display: flex;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 450px;
+  height: 550px;
+  background-color: #FFFFFF99;
+  border-radius: 20px;
+  box-shadow: 0px 0px 30px 0px rgba(255, 255, 255, 1);
+  border: 1px solid white;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.card form {
+    display: flex;
+    flex-direction: column;
+}
+
+.input {
+    background: none;
+    border: 3px solid black;
+    border-radius: 12px;
+    padding: 10px 20px;
+    margin: 10px;
+    font-size: 17px;
+    cursor: pointer;
+}
+
+.login {
+    border: 2px solid black;
+    border-radius: 7px;
+    width: 300px;
+}
+
+.button {
+    background-color: background;
+    color: white;
+}
+
+.bth:hover {
+    border: 3px solid #4c4e4c;
+    background-color: #00000000;
+    color: #4c4e4c;
+}
+
+input:focus {
+    outline: none;
+}
+
+a {
+  color: black;
+  font-family: 'Arial', sans-serif;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.msg {
+    font-size: 17px;
+    text-align: center;
+}
+
+.page {
+    margin: 30px auto;
+    width: 1200px;
+    min-height: 120vh;
+    background-color: white;
+    padding: 30px;
+}
+
+.page h1 {
+    text-align: center;
+    font-family: 'Libre Franklin', sans-serif;
+}
+
+.panel {
+    display: flex;
+    justify-content: right;
+}
+
+.panel input {
+    background-color: white;
+    border-color: black;
+    font-size: 15px;
+    color: black;
+}

@@ -1,0 +1,26 @@
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title> JobStatisticsApp </title>
+		<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@200;500&display=swap" rel="stylesheet">
+	</head>
+	<body>
+		<h1 class="start-title">Statystki ofert pracy justjoin.pl</h1>
+		<div class="start-description">
+			<p>Witamy cię na naszej stronie, na której możesz znaleźć analizy i statytki dotyczące ofert pracy w IT w 2022 roku z serwisu justjoin.pl.</p>
+			<p>Możesz dowiedzieć się jakie języki i techonologie są najbardziej pożadane na rynku, jakie są zarobiki dla ludzi z określonym doświadczeniem,</p>
+			<p>jak duża jest szansa na znalezienie pracy zdalnej oraz wiele innych!</p>
+		</div>
+		<div class="start-panel">
+			<form method="get" action="{{ url_for('user_route.login') }}">
+				<input class="input bth button" type="submit" value="LOGIN"/>
+			</form>
+			<form method="get" action="{{ url_for('user_route.register') }}">
+				<input class="input bth" type="submit" value="SIGN UP"/>
+			</form>
+		</div>
+	</body>
+</html>
