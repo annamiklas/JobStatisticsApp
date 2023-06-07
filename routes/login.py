@@ -1,11 +1,8 @@
 import matplotlib
-from flask import Blueprint, render_template, request, redirect, session, Response
+from flask import Blueprint, render_template, request, redirect, session
 
 matplotlib.use('Agg')
-import matplotlib.pyplot as plt
 import pandas as pd
-import numpy as np
-import os
 
 from controllers.UserManager import UserManager
 from app import Dao
@@ -73,29 +70,6 @@ def logout():
     user_manager.logout()
     return redirect("/", code=302)
 
-
-@user_view.route('/dashboard', methods=['POST', 'GET'])
-@user_manager.user.login_required
-def dashboard():
-    plot = get_plot()
-    plot.savefig(os.path.join('static', 'images', 'plot.png'))
-
-    return render_template('dashboard.html')
-
-
-def get_plot():
-    data = {
-        'a': np.arange(50),
-        'c': np.random.randint(0, 50, 50),
-        'd': np.random.randn(50)
-    }
-    data['b'] = data['a'] + 10 * np.random.randn(50)
-    data['d'] = np.abs(data['d']) * 100
-
-    plt.scatter('a', 'b', c='c', s='d', data=data)
-    plt.xlabel('X label')
-    plt.ylabel('Y label')
-    return plt
 
 
 # TODO Hashing password

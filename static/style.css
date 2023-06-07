@@ -128,3 +128,14 @@ a {
     font-size: 15px;
     color: black;
 }
+
+.plots img {
+    display: block;
+    border-bottom: 2px dotted gray;
+    margin: 0px auto;
+    width: 900px;
+}
+
+.plots img:last-child {
+    border-bottom: 0px;
+}

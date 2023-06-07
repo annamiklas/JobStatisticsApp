@@ -7,5 +7,7 @@ app.secret_key = '#$ab9&^BB00_.'
 Dao = Dao(app)
 
 from routes.login import user_view
+from routes.dashboard import dashboard_view
 
 app.register_blueprint(user_view)
+app.register_blueprint(dashboard_view)
