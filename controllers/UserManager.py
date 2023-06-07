@@ -1,3 +1,5 @@
+from passlib.handlers.pbkdf2 import pbkdf2_sha256
+
 from actors.User import User
 
 
@@ -6,30 +8,20 @@ class UserManager:
         self.user = User(dao.db.user)
         self.dao = self.user.dao
 
-    def get_user_list(self):
-        user_list = self.dao.list()
-
-        return user_list
-
     def signin(self, email, password):
         user = self.dao.getByEmail(email)
 
         if user is None:
             return False
 
-        user_pass = user['password']  # user pass at
-        if user_pass != password:
+        user_pass = user['password']
+        if not pbkdf2_sha256.verify(password, user_pass):
             return False
 
         return user
 
     def logout(self):
         self.user.logout()
-
-    def get_user_by_id(self, id):
-        user = self.dao.getById(id)
-
-        return user
 
     def signup(self, username, email, password):
         user = self.dao.getByEmail(email)

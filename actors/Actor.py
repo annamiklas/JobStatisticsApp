@@ -7,24 +7,6 @@ class Actor:
     sess_key = ""
     route_url = "/"
 
-    def uid(self):
-        if self.isLoggedIn():
-            return session[self.sess_key]
-
-        return "err"
-
-    def set_session(self, session, g):
-        g.user = 0
-
-        if self.isLoggedIn():
-            g.user = session[self.sess_key]
-
-    def isLoggedIn(self):
-        if self.sess_key in session and session[self.sess_key] and session[self.sess_key] > 0:
-            return True
-
-        return False
-
     def login_required(self, f, path="login"):
         @wraps(f)
         def decorated_function(*args, **kwargs):
@@ -46,6 +28,3 @@ class Actor:
 
     def logout(self):
         session[self.sess_key] = None
-
-    def signin(self):
-        pass

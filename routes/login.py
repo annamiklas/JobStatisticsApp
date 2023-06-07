@@ -1,5 +1,6 @@
 import matplotlib
 from flask import Blueprint, render_template, request, redirect, session
+from passlib.hash import pbkdf2_sha256
 
 matplotlib.use('Agg')
 import pandas as pd
@@ -53,7 +54,8 @@ def register():
         password = str(_form["password"])
 
         if username and email and password:
-            new_user = user_manager.signup(username, email, password)
+            hashed = pbkdf2_sha256.hash(password, rounds=20000, salt_size=16)
+            new_user = user_manager.signup(username, email, hashed)
             if new_user:
                 return render_template("login.html", msg="You have registered! Now you can log in")
             return render_template('register.html', msg="User already exists with this email")
@@ -69,8 +71,3 @@ def register():
 def logout():
     user_manager.logout()
     return redirect("/", code=302)
-
-
-
-# TODO Hashing password
-# TODO cofanie stron
