@@ -17,7 +17,6 @@ user_manager = UserManager(Dao)
 
 job_offer_data = pd.read_csv("dane.csv")
 
-
 @dashboard_view.route('/dashboard', methods=['POST', 'GET'])
 @user_manager.user.login_required
 def dashboard():
@@ -43,6 +42,7 @@ def get_plot():
     plt.scatter('a', 'b', c='c', s='d', data=data)
     plt.xlabel('X label')
     plt.ylabel('Y label')
+    plt.title('Wykres testowy')
     plt.savefig(os.path.join('static', 'plots', 'plot1.png'))
 
 
@@ -51,8 +51,7 @@ def get_statistic_for_wroclaw():
     filtered_data = wykres1.loc[wykres1['City'].str.contains('Wrocław', case=False)]
     selected_columns = ['City', 'Marker_icon']
     filtered_data = filtered_data[selected_columns]
-    countsPositionType = wykres1['Marker_icon'].value_counts().reset_index().rename(columns={'Marker_icon': 'Liczba'})\
-        .rename(columns={'index': 'Marker_icon'})
+    countsPositionType = wykres1['Marker_icon'].value_counts().reset_index().rename(columns={'count': 'Liczba'})
 
     plt.figure(figsize=(22, 6))
     bars = plt.bar(countsPositionType['Marker_icon'], countsPositionType['Liczba'])
@@ -140,7 +139,7 @@ def get_statistic_for_mid():
         (wykres4['Open_to_hire_Ukrainians'] == True) & (wykres4['Published_at'] > '2022-10-26T14:00:00.000Z') & (
                 wykres4['Experience_level'] == 'mid')]
     counts = filteredDataDate['City'].value_counts()
-    countsForTable = counts.reset_index().rename(columns={'City': 'Liczba'}).rename(columns={'index': 'City'})
+    countsForTable = counts.reset_index().rename(columns={'count': 'Liczba'})
 
     suma = countsForTable.loc[countsForTable['Liczba'] == 1, 'Liczba'].sum()
     countsForTable = countsForTable[countsForTable['Liczba'] != 1]
@@ -164,7 +163,6 @@ def get_statistic_for_php_js():
         (wykres5['skills_name_0'] == 'PHP') & (wykres5['skills_name_1'] == 'JavaScript') |
         (wykres5['skills_name_1'] == 'PHP') & (wykres5['skills_name_2'] == 'JavaScript') |
         (wykres5['skills_name_0'] == 'PHP') & (wykres5['skills_name_2'] == 'JavaScript')]
-    # display(filteredDataPHPJavaScript)
 
     fig, ax = plt.subplots(figsize=(13, 6))
     filteredDataPHPJavaScript.loc[:, 'Published_at'] = pd.to_datetime(filteredDataPHPJavaScript['Published_at'])
