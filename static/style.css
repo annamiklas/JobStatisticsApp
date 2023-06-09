@@ -77,11 +77,6 @@ body {
     width: 300px;
 }
 
-.button {
-    background-color: background;
-    color: white;
-}
-
 .bth:hover {
     border: 3px solid #4c4e4c;
     background-color: #00000000;
@@ -133,7 +128,7 @@ a {
     display: block;
     border-bottom: 2px dotted gray;
     margin: 0px auto;
-    width: 900px;
+    width: 1200px;
 }
 
 .plots img:last-child {

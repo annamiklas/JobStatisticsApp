@@ -12,7 +12,7 @@ user_view = Blueprint('user_route', __name__, template_folder='/templates')
 
 user_manager = UserManager(Dao)
 
-ECS_data = pd.read_csv("C:/Users/annam/Desktop/Python/projekt/job-offer.csv")
+ECS_data = pd.read_csv("dane.csv")
 
 
 @user_view.route('/', methods=['POST', 'GET'])
